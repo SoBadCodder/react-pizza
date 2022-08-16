@@ -12,7 +12,7 @@ import Pagination from '../components/Pagination';
 import { SearchContext } from '../App';
 
 import { setFilters } from '../redux/Slices/filterSlice';
-import { fetchPizzas } from '../redux/Slices/PizzaSlice';
+import { fetchPizzas, pizzaDataSelector } from '../redux/Slices/PizzaSlice';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -21,7 +21,7 @@ const Home = () => {
   const isMounted = React.useRef(false);
 
   const { categoryId, currentPage, sort } = useSelector((state) => state.filter);
-  const { items, status } = useSelector((state) => state.pizza);
+  const { items, status } = useSelector(pizzaDataSelector);
 
   const { searchValue } = React.useContext(SearchContext);
 
