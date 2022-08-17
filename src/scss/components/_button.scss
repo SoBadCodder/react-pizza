@@ -132,12 +132,13 @@
   &--cart {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     line-height: 23px;
     padding: 12px 25px;
-    @media (max-width: 650px) {
-      justify-content: space-evenly;
-    }
 
+    &__total {
+      width: 72px;
+    }
     svg {
       margin-right: 8px;
       margin-bottom: 1px;
@@ -148,8 +149,10 @@
       font-size: 16px;
     }
     &__block {
+      width: 62px;
       display: flex;
       align-items: center;
+      justify-content: center;
     }
   }
 }

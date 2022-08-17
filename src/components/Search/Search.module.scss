@@ -1,15 +1,11 @@
 .root {
   position: relative;
-  @media (max-width: 1449px) {
-    left: 0;
-  }
   @media (max-width: 1150px) {
     margin-top: 20px;
   }
   @media (max-width: 650px) {
     width: 100%;
   }
-  left: -120px;
 }
 
 .input {
@@ -17,6 +13,9 @@
   padding: 12px 20px;
   padding-left: 42px;
   width: 400px;
+  @media (max-width: 1200px) {
+    width: 300px;
+  }
   @media (max-width: 650px) {
     width: 100%;
   }

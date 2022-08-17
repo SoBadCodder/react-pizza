@@ -5,7 +5,7 @@
   &__label {
     display: flex;
     align-items: center;
-
+    user-select: none;
     .rotated {
       rotate: 180deg;
     }
