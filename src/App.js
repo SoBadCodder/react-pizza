@@ -6,6 +6,7 @@ import Header from './components/Header';
 import Home from './pages/Home';
 import Cart from './pages/Cart';
 import NotFound from './pages/NotFound';
+import FullPizza from './pages/FullPizza';
 
 import './scss/app.scss';
 
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/react-pizza/" element={<Home />} />
           <Route path="/react-pizza/cart" element={<Cart />} />
+          <Route path="react-pizza/pizza/:pizzaId" element={<FullPizza />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
