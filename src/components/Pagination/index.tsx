@@ -2,12 +2,13 @@ import React from 'react';
 import ReactPaginate from 'react-paginate';
 import { useSelector, useDispatch } from 'react-redux';
 import { setPageCount } from '../../redux/Slices/filterSlice';
+import { RootState } from '../../redux/store';
 
 import styles from './pagination.module.scss';
 
 export const Pagination = () => {
   const dispatch = useDispatch();
-  const { currentPage } = useSelector((state) => state.filter);
+  const { currentPage } = useSelector((state: RootState) => state.filter);
 
   return (
     <div className={styles.root}>
@@ -20,7 +21,6 @@ export const Pagination = () => {
         pageRangeDisplayed={4}
         forcePage={currentPage - 1}
         pageCount={3}
-        renderOnZeroPageCount={null}
       />
     </div>
   );

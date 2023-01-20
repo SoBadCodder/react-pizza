@@ -1,4 +1,3 @@
-import React from 'react';
 import { Route, Routes } from 'react-router-dom';
 
 import Header from './components/Header';
@@ -16,8 +15,8 @@ function App() {
       <Header />
       <div className="content">
         <Routes>
-          <Route path="/react-pizza/" element={<Home />} />
-          <Route path="/react-pizza/cart" element={<Cart />} />
+          <Route path="react-pizza/" element={<Home />} />
+          <Route path="react-pizza/cart" element={<Cart />} />
           <Route path="react-pizza/pizza/:pizzaId" element={<FullPizza />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

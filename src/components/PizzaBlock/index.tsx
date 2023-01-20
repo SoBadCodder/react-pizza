@@ -3,9 +3,27 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { Link } from 'react-router-dom';
 
-import { addItem, cartItemSelector } from '../../redux/Slices/cartSlice';
+import { addItem, CartItem, cartItemSelector } from '../../redux/Slices/cartSlice';
 
-function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
+type PizzaBlockProps = {
+  id: string;
+  title: string;
+  price: number;
+  imageUrl: string;
+  types: number[];
+  sizes: number[];
+  rating: number;
+};
+
+const PizzaBlock: React.FC<PizzaBlockProps> = ({
+  id,
+  title,
+  price,
+  imageUrl,
+  sizes,
+  types,
+  rating,
+}) => {
   const dispatch = useDispatch();
 
   const [activeType, setActiveType] = React.useState(0);
@@ -17,13 +35,14 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
   const addedCount = cartItem ? cartItem.count : 0;
 
   const onClickAdd = () => {
-    const item = {
+    const item: CartItem = {
       id,
       title,
       price,
       imageUrl,
       type: typeNames[activeType],
       size: sizes[activeSize],
+      count: 0,
     };
     dispatch(addItem(item));
   };
@@ -37,11 +56,11 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
         </Link>
         <div className="pizza-block__selector">
           <ul>
-            {types.map((typeId, i) => (
+            {types.map((typeId) => (
               <li
                 key={typeId}
-                onClick={() => setActiveType(typeId, i)}
-                className={activeType === i ? 'active' : ''}>
+                onClick={() => setActiveType(typeId)}
+                className={activeType === typeId ? 'active' : ''}>
                 {typeNames[typeId]}
               </li>
             ))}
@@ -78,5 +97,5 @@ function PizzaBlock({ id, title, price, imageUrl, sizes, types, rating }) {
       </div>
     </div>
   );
-}
+};
 export default PizzaBlock;
